@@ -13,3 +13,6 @@ const io = new Server(server, {
     methods: ["GET", "POST"]
   }
 })
+
+
+https://www.youtube.com/watch?v=djMy4QsPWiI&ab_channel=PedroTech
