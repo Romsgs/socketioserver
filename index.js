@@ -26,10 +26,14 @@ io.on("connection", (socket) => {
   socket.on("I_Know", (data) => {
     // Implement message validation and sanitization here if needed
     const currentDate = new Date();
+    currentDate.setHours(currentDate.getHours() - 3);
+
     const currentHour = currentDate.getHours().toString().padStart(2, "0");
     const currentMinute = currentDate.getMinutes().toString().padStart(2, "0");
     const currentSecond = currentDate.getSeconds().toString().padStart(2, "0");
+
     const formattedTime = `${currentHour}:${currentMinute}:${currentSecond}`;
+
     socket.emit("whoKnows", { nome: data.nome, time: formattedTime });
     socket.broadcast.emit("whoKnows", data.nome);
   });
